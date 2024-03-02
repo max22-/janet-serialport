@@ -2,8 +2,8 @@
 #include <libserialport.h>
 
 static Janet list_ports(int32_t argc, Janet *argv) {
-    struct sp_port **port_list;
     janet_fixarity(argc, 0);
+    struct sp_port **port_list;
     enum sp_return result = sp_list_ports(&port_list);
     if(result != SP_OK)
         return janet_wrap_array(janet_array(0));
